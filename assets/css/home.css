@@ -1,0 +1,304 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.debugDiv {
+	position: absolute;
+	top: 480px;
+	left: 100px;
+	width: 320px;
+	padding-top: 10px;
+	font-size: 10px;
+}
+
+#draggable2 {
+	width: 297px;
+	height: 246px;
+	padding: 0.5em;
+	position: absolute;
+	left: 2px;
+	top: 102px;
+	z-index:0;
+}
+#draggable3 {
+	width: 297px;
+	height: 246px;
+	padding: 0.5em;
+	position: absolute;
+	left: 2px;
+	top: 102px;
+	z-index:1;
+}
+#draggable4 {
+	width: 297px;
+	height: 246px;
+	padding: 0.5em;
+	position: absolute;
+	left: 2px;
+	top: 102px;
+	z-index:2;
+}
+#draggable5 {
+	width: 297px;
+	height: 246px;
+	padding: 0.5em;
+	position: absolute;
+	left: 2px;
+	top: 102px;
+	z-index:3;
+}
+#draggable6 {
+	width: 297px;
+	height: 246px;
+	padding: 0.5em;
+	position: absolute;
+	left: 2px;
+	top: 102px;
+	z-index:4;
+}
+#draggable7 {
+	width: 297px;
+	height: 246px;
+	padding: 0.5em;
+	position: absolute;
+	left: 2px;
+	top: 102px;
+	z-index:5;
+}
+#draggable8 {
+	width: 297px;
+	height: 246px;
+	padding: 0.5em;
+	position: absolute;
+	left: 2px;
+	top: 102px;
+	z-index:6;
+}
+#draggable9 {
+	width: 297px;
+	height: 246px;
+	padding: 0.5em;
+	position: absolute;
+	left: 2px;
+	top: 102px;
+	z-index:7;
+}
+#draggable10 {
+	width: 297px;
+	height: 246px;
+	padding: 0.5em;
+	position: absolute;
+	left: 2px;
+	top: 102px;
+	z-index:8;
+}
+
+#geo {
+	width: 297px;
+	height: 14px;
+	padding: 0.5em;
+	position: absolute;
+	left: 4px;
+	top: 71px;
+	z-index:8;
+}
+
+#likeDiv {
+	width: 50px;
+	height: 50px;
+	padding: 0.5em;
+	position: absolute;
+	left: 183px;
+	top: 401px;
+	z-index:8;
+}
+#dislikeDiv {
+	width: 50px;
+	height: 50px;
+	padding: 0.5em;
+	position: absolute;
+	left: 71px;
+	top: 401px;
+	z-index:8;
+}
+#content {
+	height: 568px;
+	width: 320px;
+	position: relative;
+	overflow: hidden;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 0px;
+	top: 520;
+	left: 10px;
+}
+body {
+	margin: 0px;
+}
+
+#geo {
+	font-size: 12px;
+	text-align:center;
+}
+
+#q1 {
+	width: 270px;
+	height: 20px;
+	padding: 0.5em;
+	position: absolute;
+	left: 25px;
+	top: 385px;
+}
+
+#q2 {
+	width: 270px;
+	height: 20px;
+	padding: 0.5em;
+	position: absolute;
+	left: 25px;
+	top: 420px;
+}
+
+#q3 {
+	width: 270px;
+	height: 20px;
+	padding: 0.5em;
+	position: absolute;
+	left: 25px;
+	top: 455px;
+}
+
+#submitDiv {
+	width: 270px;
+	height: 20px;
+	padding: 0.5em;
+	position: absolute;
+	left: 25px;
+	top: 490px;
+}
+
+#questionBox {
+	width: 288px;
+	height: 35px;
+	position: absolute;
+	left: 7px;
+	top: 320px;
+}
+
+#RadioGroup1_0 {
+	position: absolute;
+	left: 3px;
+	top: 391px;
+}
+
+#RadioGroup1_1 {
+	position: absolute;
+	left: 4px;
+	top: 426px;
+}
+
+#RadioGroup1_2 {
+	position: absolute;
+	left: 4px;
+	top: 461px;
+}
+
+
+
+#questionLbl {
+	
+	position: absolute;
+	left: 5px;
+	top: 45px;
+}
+
+#settings {
+	height: 35px;
+	width: 249px;
+	position: absolute;
+	left: 2px;
+	top: 5px;
+}
+
+#rightAnswer {
+	height: 25px;
+	width: 235px;
+	position: absolute;
+	left: 2px;
+	top: 200px;
+}
+
+#wrongAnswer {
+	height: 25px;
+	width: 235px;
+	position: absolute;
+	left: 2px;
+	top: 270px;
+}
+
+#submitBtn {
+	width: 170px;
+	height: 25px;
+	padding: 0.5em;
+	position: absolute;
+	left: 75px;
+	top: 385px;
+}
+
+#imageDiv {
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	left: 15px;
+	top: 67px;
+}
+
+#name {
+	width: 138px;
+	height: 15px;
+	padding: 0.5em;
+	position: absolute;
+	left: 160px;
+	top: 70px;
+}
+
+#age {
+	width: 138px;
+	height: 15px;
+	padding: 0.5em;
+	position: absolute;
+	left: 160px;
+	top: 105px;
+}
+
+#schools {
+	width: 138px;
+	height: 15px;
+	padding: 0.5em;
+	position: absolute;
+	left: 160px;
+	top: 140px;
+}
+
+#mutualFriendsLbl {
+	height: 15px;
+	position: absolute;
+	left: 5px;
+	top: 235px;
+	width: 157px;
+}
+
+#mutualFriends {
+	width: 300px;
+	height: 50px;
+	position: absolute;
+	left: 5px;
+	top: 260px;
+	overflow: hidden;
+}
+
+.container-inner {
+
+	width: 100%;
+    height: 99%;
+	overflow: auto;
+}
