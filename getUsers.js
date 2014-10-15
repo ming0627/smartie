@@ -38,14 +38,13 @@ function getUsers(Arg,stateP,array,time) {
 	{
 		if(Arg)
 		{
-			Url="http://ridleytechconsulting.com/smoothie/recipes.php?recipeid="+Arg;	
+			Url="http://ridleytechconsulting.com/smartie/userid.php?userid="+Arg;	
 		}
 		else
 		{
-			Url="http://ridleytechconsulting.com/smoothie/recipes.php"      
+			Url="http://ridleytechconsulting.com/smartie/userid.php"      
 		}
 	}
-	
 
 	if (window.XMLHttpRequest) {
 	
