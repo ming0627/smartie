@@ -1,4 +1,4 @@
-function insertMessage(roomid,userid,message) {
+function insertMessage(senderid,receiverid,message) {
 		
 	if (window.XMLHttpRequest) {
 	
@@ -14,7 +14,7 @@ function insertMessage(roomid,userid,message) {
 	   // How to send a POST request
 		xmlhttp.open("POST", "sendmessage.php", true);
 		xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-		xmlhttp.send( "roomid=" + escape(roomid) + "&userid=" + escape(userid) + "&message=" + message);
+		xmlhttp.send( "senderid=" + escape(senderid) + "&receiverid=" + escape(receiverid) + "&message=" + message);
 	} 
 	else 
 	{

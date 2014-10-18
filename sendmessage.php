@@ -1,4 +1,4 @@
-<?php require_once('../Connections/chatroom.php');
+<?php require_once('../Connections/tinder.php');
 
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -31,12 +31,13 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
 }
 }
 
-$insertSQL = sprintf("INSERT INTO messages (message, userid,roomid) VALUES (%s, %s, %s)",
+$insertSQL = sprintf("INSERT INTO messages (message, senderid,receiverid,unread) VALUES (%s, %s, %s, %s)",
                        GetSQLValueString($_POST['message'], "text"),
-                       GetSQLValueString($_POST['userid'], "int"),
-					   GetSQLValueString($_POST['roomid'], "int"));
+                       GetSQLValueString($_POST['senderid'], "int"),
+					   GetSQLValueString($_POST['receiverid'], "int"),
+					   GetSQLValueString(0, "int"));
 
-  mysql_select_db($database_chatroom, $chatroom);
-  $Result1 = mysql_query($insertSQL, $chatroom) or die(mysql_error());
+  mysql_select_db($database_tinder, $tinder);
+  $Result1 = mysql_query($insertSQL, $tinder) or die(mysql_error());
   
 ?>

@@ -26,14 +26,11 @@ var pickedAnswer;
 var correctAnswer;
 var currentUserId;
 var isMatch;
-var userid = 1;
+var userid = 99;
 var potentialMatches = [];
 var intvl;
 	
 	$(document).ready(function () {
-		
-	$('#questionDiv').hide();
-	$('#messageOrSaveDiv').hide();
 	
 																
     $("input[name=RadioGroup1]:radio").change(function () {
@@ -59,7 +56,7 @@ var intvl;
     })
 	
 	
-	getUsers(1,"home",null,null);
+	getUsers(99,"home",null,null);
 	
 	
 	//button clicks
@@ -541,12 +538,6 @@ body {
     <div id="schools"></div>
     
     <div id="mutualFriendsLbl"></div>
-    <div id="mutualFriends"><div class="container">
-    <img src="assets/userimages/3.png" width="50" height="50">
-    <img src="assets/userimages/4.png" width="50" height="50">
-    </div></div>
-    
-    
   <div id="questionDiv">
     
     <form name="form1" method="post" action="">
@@ -555,15 +546,9 @@ body {
     <div id="q3"></div>
     <div id="submitDiv">
       <label>
-        <input type="button" name="button" id="answerBtn" value="Answer to match">
-        <input type="button" name="button" id="buttonBtn" value="Next">
+        <input type="button" name="button" id="answerBtn" value="Save">
       </label>
     </div>
-    
-    <div id="hintDiv">
-      Get it right and they will be invited to answer your question, get it wrong and you will be shown a new profile. Your answers and actions are anonymous.
-    </div>
-    
     <div id="questionBox"></div>
     <input type="radio" name="RadioGroup1" value="0" id="RadioGroup1_0">
     <input type="radio" name="RadioGroup1" value="1" id="RadioGroup1_1">
@@ -574,21 +559,6 @@ body {
     </form>
     
     </div>
-    
-  <div id="showQuestionDiv">
-    <input type="button" name="button" id="showQuestionBtn" value="Show Question">
-    <input type="button" name="button" id="nextBtn2" value="Next">
-    </div>
-    
-  <div id="hintDiv2">
-      You will have 10 seconds to answer thier quesiton.
-    </div>
-    
-  <div id="messageOrSaveDiv">
-    <input type="button" name="button" id="messageNowBtn" value="Message Now">
-    <input type="button" name="button" id="saveForLaterBtn" value="Save For Later">
-    </div>
-    
 </div>
 
 </body>

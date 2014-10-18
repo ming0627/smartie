@@ -36,7 +36,7 @@ if (!isset($_SESSION)) {
   session_start();
 }
 
-$_GET[userid] = "1";
+//$_GET[userid] = "1";
 
 mysql_select_db($database_tinder, $tinder);
 $query_rsPotentialMatches = "select userid from users where userid != '$_GET[userid]' and userid not IN (SELECT senderid FROM matches UNION ALL SELECT receiverid FROM matches)";
