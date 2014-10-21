@@ -1,3 +1,5 @@
+var debug = false;
+
 function updatesettings(userid,genderGroup,interestGroup,agesGroup,notification) {
 		
 	if (window.XMLHttpRequest) {
@@ -11,9 +13,17 @@ function updatesettings(userid,genderGroup,interestGroup,agesGroup,notification)
 
 	if (xmlhttp!=null)  
 	{	 
-					   
 	   // How to send a POST request
-		xmlhttp.open("POST", "updateSettings.php", true);
+
+		if(debug == true)
+		{
+			xmlhttp.open("POST", "updateSettings.php", true);
+		}
+		else
+		{
+			xmlhttp.open("POST", "http://ridleytechconsulting.com/smartie/updateSettings.php", true);
+		}
+		
 		xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
 		xmlhttp.send( 
 		"userid=" + escape(userid) + 

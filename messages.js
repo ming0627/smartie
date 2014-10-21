@@ -1,7 +1,7 @@
 
 var xmlhttp;
 var stateGlobal;
-var debug = true;
+var debug = false;
 var init = true;
 
 function GetMessages(Arg,state,user1,user2) {
@@ -24,36 +24,18 @@ function GetMessages(Arg,state,user1,user2) {
 			Url="getconvofeed.php?user1="+user1+"&user2="+user2;
 			//console.log("get feed");
 		}
-			
-			
-		//console.log("init state: "+stateGlobal);
-		/*if(Arg)
-		{
-			Url="getmessages.php?receiverid="+Arg;	
-		}
-		else
-		{
-			if(state == "messages")
-			{
-				Url="getmessages.php"  
-				console.log("get messages");
-			}
-			else
-			{
-				Url="getconvofeed.php"
-				console.log("get feed");
-			}
-		}*/
 	}
 	else
 	{
-		if(Arg)
+		if(state == "messages")
 		{
-			Url="http://ridleytechconsulting.com/smartie/getmessages.php?recipeid="+Arg;	
+			Url="http://ridleytechconsulting.com/smartie/getmessages.php"  
+			//console.log("get messages");
 		}
 		else
 		{
-			Url="http://ridleytechconsulting.com/smartie/getmessages.php"      
+			Url="http://ridleytechconsulting.com/smartie/getconvofeed.php?user1="+user1+"&user2="+user2;
+			//console.log("get feed");
 		}
 	}
 	

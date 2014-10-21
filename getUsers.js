@@ -1,7 +1,7 @@
 
 var xmlhttp;
 var state;
-var debug = true;
+var debug = false;
 var init = true;
 
 function getUsers(Arg,stateP,array,time) {
@@ -29,11 +29,11 @@ function getUsers(Arg,stateP,array,time) {
 	{
 		if(Arg)
 		{
-			Url="http://ridleytechconsulting.com/smartie/userid.php?userid="+Arg +"&state="+state;	
+			Url="http://ridleytechconsulting.com/smartie/getusers.php?userid="+Arg +"&state="+state;	
 		}
 		else
 		{
-			Url="http://ridleytechconsulting.com/smartie/userid.php"      
+			Url="http://ridleytechconsulting.com/smartie/getusers.php"      
 		}
 	}
 

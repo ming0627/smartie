@@ -1,3 +1,5 @@
+var debug = false;
+
 function updateUserInfo(name,age,schools,q1,q2,q3,question,userid) {
 	
 	console.log("name: "+name);
@@ -19,8 +21,16 @@ function updateUserInfo(name,age,schools,q1,q2,q3,question,userid) {
 	}
 
 	if (xmlhttp!=null)  
-	{	 
-		xmlhttp.open("POST", "updateUserInfo.php", true);
+	{	 		
+		if(debug == true)
+		{
+			xmlhttp.open("POST", "updateUserInfo.php", true);
+		}
+		else
+		{
+			xmlhttp.open("POST", "http://ridleytechconsulting.com/smartie/updateUserInfo.php", true);
+		}
+		
 		xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
 		xmlhttp.send( 
 		  "name=" + escape(name) 

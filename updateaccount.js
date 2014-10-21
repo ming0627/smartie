@@ -1,3 +1,5 @@
+var debug = false;
+
 function updateaccount(senderid,receiverid,message) {
 		
 	if (window.XMLHttpRequest) {
@@ -12,7 +14,16 @@ function updateaccount(senderid,receiverid,message) {
 	if (xmlhttp!=null)  
 	{	 
 	   // How to send a POST request
-		xmlhttp.open("POST", "updateAccount.php", true);
+		
+		if(debug == true)
+		{
+			xmlhttp.open("POST", "updateAccount.php", true);
+		}
+		else
+		{
+			xmlhttp.open("POST", "http://ridleytechconsulting.com/smartie/updateAccount.php", true);
+		}
+		
 		xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
 		xmlhttp.send( "userid=" + escape(userid) + "&goInvisibleCB=" + escape(goInvisibleCB) + "&deactivateCB=" + deactivateCB + "&comments=" + contactTV);
 	} 

@@ -1,7 +1,7 @@
 
 var xmlhttp;
 var state;
-var debug = true;
+var debug = false;
 var init = true;
 
 function getUsers(Arg,stateP,array,time) {
@@ -14,18 +14,7 @@ function getUsers(Arg,stateP,array,time) {
 	
 	if(debug == true)
 	{
-		if(array)
-		{
-			Url="getusers.php?userid="+Arg+"&list="+array;	
-			//console.log("messages.php?userid="+Arg+"&list="+array);
-		}
-		else if(time)
-		{
-			init = false;
-			Url="getusers.php?userid="+Arg+"&time="+time;	
-			//console.log("messages.php?userid="+Arg+"&time="+time);
-		}
-		else if(Arg)
+		if(Arg)
 		{
 			Url="getusers.php?userid="+Arg;	
 		}
