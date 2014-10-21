@@ -4,6 +4,7 @@ var state;
 var debug = false;
 var init = true;
 
+
 function getUsers(Arg,stateP,array,time) {
 	
 	state = stateP;
@@ -18,7 +19,7 @@ function getUsers(Arg,stateP,array,time) {
 		if(Arg)
 		{
 			Url="getusers.php?userid="+Arg+"&state="+state;	
-			console.log("getusers.php?userid="+Arg);
+			console.log("debug getusers.php?userid="+Arg);
 		}
 		else
 		{
@@ -86,6 +87,7 @@ function onStateChange()  {
 			
 			var html = "";
 			var newMessage = false;
+			$('#mutualFriends').show();
 			
 			//console.log("count: "+markers.length);
 			

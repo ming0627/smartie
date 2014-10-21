@@ -1,4 +1,8 @@
-<?php header('Content-type: application/xml'); ?>
+<?php header('Content-type: application/xml'); ?><?php header("Access-Control-Allow-Origin: '*'"); ?>
+<?php /*?><?php header('Access-Control-Allow-Origin: *'); ?>
+<?php header('Access-Control-Allow-Credentials: true'); ?>
+<?php header('Access-Control-Expose-Headers: FooBar'); ?>
+<?php header('Content-Type: text/html; charset=utf-8'); ?><?php */?>
 <?php require_once('../Connections/tinder.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
