@@ -1,0 +1,229 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
+<title>Tinder Sample</title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<script type="text/javascript" src="http://www.pureexample.com/js/lib/jquery.ui.touch-punch.min.js"></script>
+<script src="../jquery/jquery-1.11.1.min.js"></script>
+<script src="getProfile.js"></script>
+<style>
+
+@font-face {
+  font-family: 'chalet';
+  src: url('assets/fonts/chalet-newyork.ttf');
+}
+
+#content {
+	font-family: 'chalet', 'Lucida Grande', sans-serif;
+	height: 568px;
+	width: 320px;
+	position: relative;
+	overflow: hidden;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 0px;
+	font-size:12px;
+}
+body {
+	margin: 0px;
+}
+
+#geo {
+	font-size: 12px;
+	text-align:center;
+}
+
+#q1 {
+	width: 270px;
+	height: 20px;
+	padding: 0.5em;
+	position: absolute;
+	left: 25px;
+	top: 430px;
+}
+
+#q2 {
+	width: 270px;
+	height: 20px;
+	padding: 0.5em;
+	position: absolute;
+	left: 25px;
+	top: 475px;
+}
+
+#q3 {
+	width: 270px;
+	height: 20px;
+	padding: 0.5em;
+	position: absolute;
+	left: 25px;
+	top: 520px;
+}
+
+#questionBox {
+	width: 270px;
+	height: 35px;
+	padding: 0.5em;
+	position: absolute;
+	left: 25px;
+	top: 370px;
+}
+
+#RadioGroup1_0 {
+	
+	position: absolute;
+	left: 5px;
+	top: 230px;
+}
+
+#RadioGroup1_1 {
+	
+	position: absolute;
+	left: 5px;
+	top: 300px;
+}
+
+#RadioGroup1_2 {
+	
+	position: absolute;
+	left: 5px;
+	top: 345px;
+}
+
+
+
+#questionLbl {
+	
+	position: absolute;
+	left: 5px;
+	top: 45px;
+}
+
+#settings {
+	height: 35px;
+	width: 249px;
+	position: absolute;
+	left: 2px;
+	top: 5px;
+}
+
+#rightAnswer {
+	height: 25px;
+	width: 235px;
+	position: absolute;
+	left: 2px;
+	top: 200px;
+}
+
+#wrongAnswer {
+	height: 25px;
+	width: 235px;
+	position: absolute;
+	left: 2px;
+	top: 270px;
+}
+
+#submitBtn {
+	width: 170px;
+	height: 25px;
+	padding: 0.5em;
+	position: absolute;
+	left: 75px;
+	top: 385px;
+}
+
+#imageDiv {
+	width: 150px;
+	height: 150px;
+	padding: 0.5em;
+	position: absolute;
+	left: 10px;
+	top: 70px;
+}
+
+#name {
+	width: 120px;
+	height: 15px;
+	padding: 0.5em;
+	position: absolute;
+	left: 180px;
+	top: 70px;
+}
+
+#age {
+	width: 120px;
+	height: 15px;
+	padding: 0.5em;
+	position: absolute;
+	left: 180px;
+	top: 105px;
+}
+
+#schools {
+	width: 120px;
+	height: 15px;
+	padding: 0.5em;
+	position: absolute;
+	left: 180px;
+	top: 140px;
+}
+
+#mutualFriendsLbl {
+	
+	height: 15px;
+	padding: 0.5em;
+	position: absolute;
+	left: 5px;
+	top: 260px;
+}
+
+#mutualFriends {
+	width: 300px;
+	height: 50px;
+	padding: 0.5em;
+	position: absolute;
+	left: 5px;
+	top: 290px;
+}
+
+
+</style>
+  
+</head>
+<body>
+<div id="content">
+  <div id="settings"><a href="smarty.html">Home</a> <a href="messages.html">Messages</a> <a href="smartyProfile.html">Profile</a> <a href="settings.html">Settings</a> <a href="account.html">Account</a></div>
+  <div id="imageDiv"><img src="images/evoke-bg@2x.png" width="150" height="150"></div>
+
+<input name="name" type="text" id="name" value="" placeholder="Name">
+<input name="name" type="text" id="age" value="" placeholder="Age">
+<input name="schools" type="text" id="schools" value="" placeholder="Schools">
+
+<div id="mutualFriendsLbl">Mutual Friends</div>
+<div id="mutualFriends"></div>
+
+<form name="form1" method="post" action="">
+<!--<div id="rightAnswer">Right Answer:</div>-->
+<input name="q1" type="text" id="q1" value="" placeholder="e.g. Harper Lee">
+<!--<div id="wrongAnswer">Two Wrong Answers:</div>-->
+<input name="q2" type="text" id="q2" value="" placeholder="e.g. George Washington">
+<input name="q3" type="text" id="q3" value="" placeholder="e.g. Tom Cruise">
+
+<input name="userid" type="hidden" value="">
+   
+<textarea name="questionBox" id="questionBox" cols="" rows=""></textarea>
+</form>
+</div>
+
+</body>
+</html>
+<?php
+mysql_free_result($rsQuestion);
+
+mysql_free_result($rsUser);
+?>

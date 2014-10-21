@@ -28,14 +28,14 @@ function updateUsers(useridP,currentUserIdP,isMatchP) {
 	{	 
 	   // How to send a POST request
 	   
-	if(debug == true)
-	{
-		xmlhttp.open("POST", "updateusers.php", true);
-	}
-	else
-	{
-		xmlhttp.open("POST", "http://ridleytechconsulting.com/smartie/updateusers.php", true);
-	}
+		if(debug == true)
+		{
+			xmlhttp.open("POST", "updateusers.php", true);
+		}
+		else
+		{
+			xmlhttp.open("POST", "http://ridleytechconsulting.com/smartie/updateusers.php", true);
+		}
 		
 		xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
 		xmlhttp.send( "userid=" + escape(useridP) + "&currentUserId=" + escape(currentUserIdP) + "&isMatch=" + isMatchP);
@@ -44,5 +44,4 @@ function updateUsers(useridP,currentUserIdP,isMatchP) {
 	{
 		alert("The XMLHttpRequest not supported");
 	}
-	
 }

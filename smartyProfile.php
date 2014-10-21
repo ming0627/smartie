@@ -1,0 +1,482 @@
+<?php ?>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
+<title>smartiePants</title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+<!--<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<script type="text/javascript" src="http://www.pureexample.com/js/lib/jquery.ui.touch-punch.min.js"></script>-->
+<script src="../jquery/jquery-1.11.1.min.js"></script>
+<script src="getUsers.js"></script>
+<script src="updateUsers.js"></script>
+<script>
+
+/*.container-outer { overflow: scroll; width: 500px; height: 210px; }
+.container-inner { width: 10000px; }*/
+
+</script>
+
+<script>
+
+var potentialMatches;
+var pickedAnswer;
+var correctAnswer;
+var currentUserId;
+var isMatch;
+var userid = 99;
+var potentialMatches = [];
+var intvl;
+	
+	$(document).ready(function () {
+		
+	getUsers(userid,"profile",null,null);
+	
+	//button clicks
+	
+	//answer button
+	
+	$( "#answerBtn" ).click(function() {
+								  		
+		updateUserInfo(userid);		
+	});
+	
+	function refreshUsers() {
+	
+		console.log("refresh");
+		getUsers(userid,"home",null,null);
+		clearInterval(intvl);
+		restoreDefaultDivs();
+	}
+});
+	
+	
+	
+	
+	
+</script>
+
+<!--http://gromo.github.io/jquery.scrollbar/demo/basic.html-->
+
+<style>
+
+@font-face {
+  font-family: 'chalet';
+  src: url('assets/fonts/chalet-newyork.ttf');
+}
+
+#content {
+	font-family: 'chalet', 'Lucida Grande', sans-serif;
+	font-size: 12px;
+	height: 568px;
+	width: 320px;
+	position: relative;
+	overflow: hidden;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 0px;
+	top: 520;
+	left: 10px;
+	background-color:#fff;
+}
+body {
+	margin: 0px;
+	background-color: #EAEAEA;
+}
+
+.debugDiv {
+	position: absolute;
+	top: 200px;
+	left: 100px;
+	width: 320px;
+	padding-top: 10px;
+	font-size: 10px;
+}
+
+#draggable2 {
+	width: 297px;
+	height: 246px;
+	padding: 0.5em;
+	position: absolute;
+	left: 2px;
+	top: 102px;
+	z-index:0;
+}
+#draggable3 {
+	width: 297px;
+	height: 246px;
+	padding: 0.5em;
+	position: absolute;
+	left: 2px;
+	top: 102px;
+	z-index:1;
+}
+#draggable4 {
+	width: 297px;
+	height: 246px;
+	padding: 0.5em;
+	position: absolute;
+	left: 2px;
+	top: 102px;
+	z-index:2;
+}
+#draggable5 {
+	width: 297px;
+	height: 246px;
+	padding: 0.5em;
+	position: absolute;
+	left: 2px;
+	top: 102px;
+	z-index:3;
+}
+#draggable6 {
+	width: 297px;
+	height: 246px;
+	padding: 0.5em;
+	position: absolute;
+	left: 2px;
+	top: 102px;
+	z-index:4;
+}
+#draggable7 {
+	width: 297px;
+	height: 246px;
+	padding: 0.5em;
+	position: absolute;
+	left: 2px;
+	top: 102px;
+	z-index:5;
+}
+#draggable8 {
+	width: 297px;
+	height: 246px;
+	padding: 0.5em;
+	position: absolute;
+	left: 2px;
+	top: 102px;
+	z-index:6;
+}
+#draggable9 {
+	width: 297px;
+	height: 246px;
+	padding: 0.5em;
+	position: absolute;
+	left: 2px;
+	top: 102px;
+	z-index:7;
+}
+#draggable10 {
+	width: 297px;
+	height: 246px;
+	padding: 0.5em;
+	position: absolute;
+	left: 2px;
+	top: 102px;
+	z-index:8;
+}
+
+#geo {
+	width: 297px;
+	height: 14px;
+	padding: 0.5em;
+	position: absolute;
+	left: 4px;
+	top: 71px;
+	z-index:8;
+}
+
+#likeDiv {
+	width: 50px;
+	height: 50px;
+	padding: 0.5em;
+	position: absolute;
+	left: 183px;
+	top: 401px;
+	z-index:8;
+}
+#dislikeDiv {
+	width: 50px;
+	height: 50px;
+	padding: 0.5em;
+	position: absolute;
+	left: 71px;
+	top: 401px;
+	z-index:8;
+}
+
+#geo {
+	font-size: 12px;
+	text-align:center;
+}
+
+#q1 {
+	width: 278px;
+	height: 20px;
+	padding: 0.5em;
+	position: absolute;
+	left: 15px;
+	top: 335px;
+	background-color: #3F3;
+	border: thin solid #666;
+}
+
+#q2 {
+	width: 278px;
+	height: 20px;
+	padding: 0.5em;
+	position: absolute;
+	left: 15px;
+	top: 375px;
+	border: thin solid #666;
+}
+
+#q3 {
+	width: 278px;
+	height: 20px;
+	padding: 0.5em;
+	position: absolute;
+	left: 15px;
+	top: 415px;
+	border: thin solid #666;
+}
+
+#submitDiv {
+	width: 278px;
+	height: 20px;
+	position: absolute;
+	left: 20px;
+	top: 490px;
+}
+
+#hintDiv {
+	width: 270px;
+	height: 20px;
+	padding: 0.5em;
+	position: absolute;
+	left: 25px;
+	top: 520px;
+}
+
+#questionBox {
+	width: 288px;
+	height: 35px;
+	position: absolute;
+	left: 7px;
+	top: 230px;
+}
+#questionBoxProfile {
+	width: 288px;
+	height: 85px;
+	position: absolute;
+	left: 15px;
+	top: 230px;
+}
+
+#showQuestionDiv {
+	width: 288px;
+	height: 35px;
+	position: absolute;
+	left: 7px;
+	top: 320px;
+}
+
+#hintDiv2 {
+	width: 288px;
+	height: 35px;
+	position: absolute;
+	left: 7px;
+	top: 350px;
+}
+
+#messageOrSaveDiv {
+	width: 288px;
+	height: 35px;
+	position: absolute;
+	left: 7px;
+	top: 350px;
+}
+
+#RadioGroup1_0 {
+	position: absolute;
+	left: 3px;
+	top: 391px;
+}
+
+#RadioGroup1_1 {
+	position: absolute;
+	left: 4px;
+	top: 426px;
+}
+
+#RadioGroup1_2 {
+	position: absolute;
+	left: 4px;
+	top: 461px;
+}
+
+#questionLbl {
+	
+	position: absolute;
+	left: 5px;
+	top: 45px;
+}
+
+#settings {
+	height: 35px;
+	width: 249px;
+	position: absolute;
+	left: 2px;
+	top: 5px;
+}
+
+#rightAnswer {
+	height: 25px;
+	width: 235px;
+	position: absolute;
+	left: 2px;
+	top: 200px;
+}
+
+#wrongAnswer {
+	height: 25px;
+	width: 235px;
+	position: absolute;
+	left: 2px;
+	top: 270px;
+}
+
+#submitBtn {
+	width: 170px;
+	height: 25px;
+	padding: 0.5em;
+	position: absolute;
+	left: 75px;
+	top: 385px;
+}
+
+#imageDiv {
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	left: 15px;
+	top: 67px;
+}
+
+#resultDiv {
+	width: 35px;
+	height: 35px;
+	padding: 0.5em;
+	position: absolute;
+	left: 160px;
+	top: 20px;
+}
+
+#name {
+	width: 125px;
+	height: 15px;
+	padding: 0.5em;
+	position: absolute;
+	left: 170px;
+	top: 65px;
+	border: thin solid #666;
+}
+
+#age {
+	width: 125px;
+	height: 15px;
+	padding: 0.5em;
+	position: absolute;
+	left: 170px;
+	top: 105px;
+	border: thin solid #666;
+}
+
+#schools {
+	width: 125px;
+	height: 15px;
+	padding: 0.5em;
+	position: absolute;
+	left: 170px;
+	top: 140px;
+	border: thin solid #666;
+}
+
+#mutualFriendsLbl {
+	height: 15px;
+	position: absolute;
+	left: 5px;
+	top: 235px;
+	width: 157px;
+}
+
+#mutualFriends {
+	width: 300px;
+	height: 50px;
+	position: absolute;
+	left: 5px;
+	top: 260px;
+	overflow: hidden;
+}
+
+.container-inner {
+
+	width: 100%;
+    height: 99%;
+	overflow: auto;
+}
+
+#answerBtn {
+	width: 100%;
+	height: 35px;
+	/*position: absolute;
+	left: 0px;
+	top: 35px;*/
+	background-color: #5eabc9;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+
+</style>
+
+<!--<link href="assets/css/home.css" rel="stylesheet" type="text/css">-->
+</head>
+<body>
+<div id="content">
+  <!--<div id="debugDiv" class="debugDiv"></div>-->
+  <div id="settings"><a href="smarty.html">Home</a> <a href="messages.html">Messages</a> <a href="smartyProfile.html">Profile</a> <a href="settings.html">Settings</a> <a href="account.html">Account</a></div>
+  
+  <div id="resultDiv"></div>
+    <div id="imageDiv"></div>
+    
+    
+    <form name="form1" method="post" action="">
+    
+    <input type="text" id="name" placeholder="Name"></input>
+    <input type="text" id="age" placeholder="Age"></input>
+    <input type="text" id="schools" placeholder="Schools"></input>
+  
+    <input type="text" id="q1" placeholder="Correct Answer"></input>
+    <input type="text" id="q2" placeholder="Incorrect Answer 1"></input>
+    <input type="text" id="q3" placeholder="Incorrect Answer 2"></input>
+
+    <textarea name="contactTV" id="questionBoxProfile"></textarea>
+    
+    
+    <div id="submitDiv">
+      <label>
+        <input type="button" name="button" id="answerBtn" value="Save">
+      </label>
+  	</div>
+    
+  </form>
+    
+</div>
+<input type="hidden" name="userid" id="userid">
+</div>
+
+</body>
+</html>

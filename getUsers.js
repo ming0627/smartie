@@ -7,6 +7,7 @@ var init = true;
 function getUsers(Arg,stateP,array,time) {
 	
 	state = stateP;
+	userid = Arg;
 	
 	xmlhttp=null;
 	
@@ -14,20 +15,10 @@ function getUsers(Arg,stateP,array,time) {
 	
 	if(debug == true)
 	{
-		if(array)
+		if(Arg)
 		{
-			Url="getusers.php?userid="+Arg+"&list="+array;	
-			//console.log("messages.php?userid="+Arg+"&list="+array);
-		}
-		else if(time)
-		{
-			init = false;
-			Url="getusers.php?userid="+Arg+"&time="+time;	
-			//console.log("messages.php?userid="+Arg+"&time="+time);
-		}
-		else if(Arg)
-		{
-			Url="getusers.php?userid="+Arg;	
+			Url="getusers.php?userid="+Arg+"&state="+state;	
+			console.log("getusers.php?userid="+Arg);
 		}
 		else
 		{
@@ -38,7 +29,7 @@ function getUsers(Arg,stateP,array,time) {
 	{
 		if(Arg)
 		{
-			Url="http://ridleytechconsulting.com/smartie/userid.php?userid="+Arg;	
+			Url="http://ridleytechconsulting.com/smartie/userid.php?userid="+Arg +"&state="+state;	
 		}
 		else
 		{
@@ -114,6 +105,8 @@ function onStateChange()  {
 				currentUserId = convert(markers[i].getAttribute("currentUserId"));
 				potentialMatches = convert(markers[i].getAttribute("potentialMatches"));
 				
+				console.log("question: " + question);
+				
 				if(totalMutualFriends == 0)
 				{
 					$('#mutualFriends').hide();
@@ -124,28 +117,56 @@ function onStateChange()  {
 				}
 				
 				//var debugInfo = convert(markers[i].getAttribute("debugInfo"));
+				//document.getElementById("name").innerHTML = username;
 				
-				document.getElementById("name").innerHTML = username;
-				
-				var image = "<img src='assets/userimages/"+currentUserId+".png' width='150' height='150'>";
+				var image;
 
-				document.getElementById("imageDiv").innerHTML = image;
-				document.getElementById("name").innerHTML = username;
-				document.getElementById("age").innerHTML = age;
-				document.getElementById("schools").innerHTML = schools;
-				document.getElementById("mutualFriendsLbl").innerHTML = "Mutual Friends ("+totalMutualFriends+")";
+				if(document.getElementById("mutualFriendsLbl"))
+				{
+					document.getElementById("mutualFriendsLbl").innerHTML = "Mutual Friends ("+totalMutualFriends+")";
+				}
 				
-				document.getElementById("q1").innerHTML = questionArray0;
-				document.getElementById("q2").innerHTML = questionArray1;
-				document.getElementById("q3").innerHTML = questionArray2;
-				document.getElementById("questionBox").innerHTML = question;
+				if(state=="home")
+				{
+					document.getElementById("name").innerHTML = username;
+					document.getElementById("age").innerHTML = age;
+					document.getElementById("schools").innerHTML = schools;
+					document.getElementById("q1").innerHTML = questionArray0;
+					document.getElementById("q2").innerHTML = questionArray1;
+					document.getElementById("q3").innerHTML = questionArray2;
+					document.getElementById("questionBox").innerHTML = question;
+					image = "<img src='assets/userimages/"+currentUserId+".png' width='150' height='150'>";
+					console.log("userid: img src='assets/userimages/"+currentUserId+".png'");
+				}
+				else
+				{
+					$('#name').val(username);
+					$('#age').val(age);
+					$('#schools').val(schools);
+					$('#questionBoxProfile').html(question)
+					$('#q1').val(questionArray0);
+					$('#q2').val(questionArray1);
+					$('#q3').val(questionArray2);
+					image = "<img class='profileImage' src='assets/userimages/"+userid+".png' width='150' height='150'>";
+					//console.log("userid: img src='assets/userimages/"+userid+".png'");
+				}
+				
+				document.getElementById("imageDiv").innerHTML = image;
+				
+				/*document.getElementById("q1").val(questionArray0);
+				document.getElementById("q2").val(questionArray1);
+				document.getElementById("q3").val(questionArray2);*/
+				
 				//document.getElementById("potentialMatches").innerHTML = potentialMatches;
 				
 				var debugInfo = "<strong>(Database - Debug Info)</strong><br> Potential matches: " 
 				+ potentialMatches + "<br> my user ID: " + "1" + "<br> potential match user ID: " 
 				+ currentUserId + "<br> correct answer: " + correctAnswer + "<br>";
 				
-				document.getElementById("debugDiv").innerHTML = debugInfo;
+				if(document.getElementById("debugDiv"))
+				{
+					document.getElementById("debugDiv").innerHTML = debugInfo;
+				}
 			}	
 			
 			//console.log("time: "+lasttime);

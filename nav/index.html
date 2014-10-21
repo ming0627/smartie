@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html">
+  <title>Template Monster Sliding Navigation Demo</title>
+  <meta name="author" content="Jake Rocheleau">
+  <link rel="shortcut icon" href="http://www.templatemonster.com/favicon.ico">
+  <link rel="icon" href="http://www.templatemonster.com/favicon.ico">
+  <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=no">
+  <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" media="all" href="css/mmenu.css">
+  <link rel="stylesheet" type="text/css" media="all and (min-width: 960px)" href="css/mmenu-widescreen.css">
+  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="js/jquery.mmenu.min.js"></script>
+</head>
+
+<body>
+  <nav id="slidemenu">
+   <ul>
+     <li class="mm-selected"><a href="#home">Home</a></li>
+     <li><a href="#about">About</a></li>
+     <li><a href="#work">My Work</a>
+       <ul>
+         <li><a href="#proj1">Some Project</a></li>
+         <li><a href="#proj2">Cool Item</a></li>
+         <li><a href="#proj3">Seriously So Cool</a></li>
+       </ul>
+     </li>
+     <li><a href="#contact">Contact</a></li>
+   </ul>
+  </nav><!-- @end #slidemenu -->
+  
+  <div id="wrapper">
+    <header id="topbar">
+      <a href="#slidemenu" id="menulink"></a>
+      
+      <h1>TemplateMonster Demo</h1>
+    </header><!-- @end #topbar -->
+    
+    <div id="content">
+      <section id="home">
+        <h2>A Simple HTML5 Webapp</h2>
+        <p>Inner content is courtesy of <a href="http://bluthipsum.com/">Bluth Ipsum</a>.</p>
+      </section><!-- @end #home -->
+      
+      <section id="about" class="hideme">
+        <h2>About Stuff</h2>
+        <p>Sweet old thing. Only two of those words describe Mom, so I know you're lying to me.</p>
+      </section><!-- @end #about -->
+      
+      <section id="work" class="hideme">
+        <h2>Example Works</h2>
+        <p>Select an item from the navigation sub-menu.</p>
+        
+        <p>Each project page displays a popular shot from Dribbble with a link back to the original source.</p>
+        
+        <p>And now more Ipsum...</p>
+        
+        <p>What is she doing at a beauty pageant? Is she running the lights or something? Whoa whoa whoa whoa. Wait. Are you telling me you have a multi-stage trick with hidden identities?</p>
+      </section><!-- @end #work -->
+      
+      <section id="contact" class="hideme">
+        <h2>Get in Touch?</h2>
+        <p>Send a quick e-mail over to this random guy named George. He knows what to do.</p>
+        
+        <form id="nonworkingform" method="post" action="#">
+          <input type="text" name="name" id="name" class="formtxt" placeholder="Name...">
+          <input type="text" name="email" id="email" class="formtxt" placeholder="Email...">
+          <textarea name="message" id="message" class="formtxtarea" placeholder="Your message..."></textarea>
+        </form>
+      </section><!-- @end #contact -->
+      
+      <section id="proj1" class="hideme">
+        <h2>Magic Potion Icon</h2>
+        <p><a href="http://dribbble.com/shots/1261019-Magic-Potion-Icon">Original source</a> designed by <a href="http://dribbble.com/Creativedash">Creativedash</a></p>
+        
+        <p><img src="images/project-image-01.jpg" alt="magic potion icon by creativedash"></p>
+      </section><!-- @end #proj1 -->
+      
+      <section id="proj2" class="hideme">
+        <h2>Spirit Magazine</h2>
+        <p><a href="http://dribbble.com/shots/1260404-Spirit-Magazine-August-2013">Original source</a> designed by <a href="http://dribbble.com/bemocs">Brian Edward Miller</a></p>
+        
+        <p><img src="images/project-image-02.jpg" alt="Spirit Magazine August 2013"></p>
+      </section><!-- @end #proj2 -->
+      
+      <section id="proj3" class="hideme">
+        <h2>Harry</h2>
+        <p><a href="http://dribbble.com/shots/1260268-Harry">Original source</a> designed by <a href="http://dribbble.com/davidwehmeyer">David L. Wehmeyer</a></p>
+        
+        <p><img src="images/project-image-03.jpg" alt="harry potter custom illustration"></p>
+      </section>
+    </div><!-- @end #content -->
+  </div><!-- @end #wrapper -->
+<script type="text/javascript">
+$(function(){
+  $('nav#slidemenu').mmenu({
+    slidingSubmenus: false,
+    moveBackground: false,
+    onClick: {
+      close             : true,
+      setSelected       : true,
+      setLocationHref   : null,
+      delayLocationHref : true,
+      blockUI           : null,
+      callback          : function(){
+        // check which link has been clicked
+        var newpageurl = $(this).attr('href');
+        var newsection = "section"+newpageurl;
+        
+        $('#content section').each(function(){ // add the .hideme class onto every section
+          if(!$(this).hasClass('hideme')) { $(this).addClass('hideme'); }
+        });
+        
+        $(newsection).removeClass('hideme'); // display only the selected content section
+      }
+   }
+  });
+});
+</script>
+</body>
+</html>

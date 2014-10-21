@@ -36,7 +36,7 @@ if (!isset($_SESSION)) {
   session_start();
 }
 
-//$_GET[userid] = "1";
+$_GET[userid] = "99";
 
 mysql_select_db($database_tinder, $tinder);
 $query_rsPotentialMatches = "select userid from users where userid != '$_GET[userid]' and userid not IN (SELECT senderid FROM matches UNION ALL SELECT receiverid FROM matches)";
@@ -54,10 +54,22 @@ if (isset($_GET['userid'])) {
   $colname_rsUser = $currentUserId; 
 }*/
 
-$colname_rsUser = $currentUserId;
+//$colname_rsUser = $currentUserId;
 
 mysql_select_db($database_tinder, $tinder);
+
+if($_GET['state'] == "home")
+{
+	$colname_rsUser = $currentUserId;
+}
+else
+{
+	$colname_rsUser = $_GET['userid'];
+}
+
+
 $query_rsUser = sprintf("SELECT * FROM users WHERE userid = %s", GetSQLValueString($colname_rsUser, "int"));
+
 $rsUser = mysql_query($query_rsUser, $tinder) or die(mysql_error());
 $row_rsUser = mysql_fetch_assoc($rsUser);
 $totalRows_rsUser = mysql_num_rows($rsUser);
@@ -69,12 +81,22 @@ $row_rsMutualFriends = mysql_fetch_assoc($rsMutualFriends);
 $totalRows_rsMutualFriends = mysql_num_rows($rsMutualFriends);
 
 mysql_select_db($database_tinder, $tinder);
-$query_rsQuestion = "SELECT * FROM questions WHERE userid = " . $currentUserId;
+
+$query_rsQuestion = "";
+
+if($_GET['state'] == "home")
+{
+	$query_rsQuestion = "SELECT * FROM questions WHERE userid = " . $currentUserId;
+}
+else
+{
+	$query_rsQuestion = "SELECT * FROM questions WHERE userid = " . $_GET['userid'];
+}
+
+
 $rsQuestion = mysql_query($query_rsQuestion, $tinder) or die(mysql_error());
 //$row_rsQuestion = mysql_fetch_assoc($rsQuestion);
 $totalRows_rsQuestion = mysql_num_rows($rsQuestion);
-
-
 
 while($row = mysql_fetch_assoc($rsQuestion))
 {
@@ -99,9 +121,7 @@ function parseToXML($htmlStr)
 	$xmlStr=str_replace("'",'&#39;',$xmlStr); 
 	$xmlStr=str_replace("&",'&amp;',$xmlStr); 
 	return $xmlStr; 
-} 
-
-
+}
 
 echo '<?xml version="1.0" encoding="ISO-8859-1"?><markers>';
 
