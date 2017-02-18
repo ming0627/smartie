@@ -43,14 +43,14 @@ Chris Griffith
 		<feature name="http://api.phonegap.com/1.0/network"/>
 
 		<gap:plugin name="org.apache.cordova.camera" source="npm"/>
-		<gap:plugin name="org.apache.cordova.geolocation"  />
-		<gap:plugin name="org.apache.cordova.dialogs"  />
-		<gap:plugin name="org.apache.cordova.device"  />
-		<gap:plugin name="org.apache.cordova.network-information"  />
-		<gap:plugin name="org.apache.cordova.console"  />
-		<gap:plugin name="org.apache.cordova.inappbrowser"  />
-		<gap:plugin name="org.apache.cordova.network-information"  />
-		<gap:plugin name="org.apache.cordova.splashscreen"  />
+		<gap:plugin name="org.apache.cordova.geolocation" source="npm"/>
+		<gap:plugin name="org.apache.cordova.dialogs" source="npm"/>
+		<gap:plugin name="org.apache.cordova.device" source="npm"/>
+		<gap:plugin name="org.apache.cordova.network-information" source="npm"/>
+		<gap:plugin name="org.apache.cordova.console" source="npm"/>
+		<gap:plugin name="org.apache.cordova.inappbrowser" source="npm"/>
+		<gap:plugin name="org.apache.cordova.network-information" source="npm"/>
+		<gap:plugin name="org.apache.cordova.splashscreen" source="npm"/>
 
 		<!--<icon src="res/icon/ios/icon-57.png" gap:platform="ios" width="57" height="57" />
 		<icon src="res/icon/ios/icon-72.png" gap:platform="ios" width="72" height="72" />
