@@ -9,7 +9,7 @@
 		<author href="randall.wordpress.com" email="ridleytech@gmail.com">
 Chris Griffith
 		</author>
-		<preference name="phonegap-version" value="5.2.0" />
+		<preference name="phonegap-version" value="6.5.0" />
 		<preference name="orientation" value="portrait" />
 		<preference name="target-device" value="universal" />
 		<preference name="fullscreen" value="false" />
